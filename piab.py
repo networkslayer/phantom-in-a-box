@@ -15,7 +15,6 @@ os.environ['OBJC_DISABLE_INITIALIZE_FORK_SAFETY'] = 'YES'
 
 VERSION = 1
 
-# want to make a change
 
 if __name__ == "__main__":
     # grab arguments
