@@ -33,3 +33,7 @@ variable "phantom_packer_ami" { }
 variable "phantom_admin_password" { }
 variable "phantom_community_username" { }
 variable "phantom_community_password" { }
+variable "pov_repo" { }
+variable "company_name" { }
+variable "customer_internal_domain" { }
+variable "phantom_app_repo" { }

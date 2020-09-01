@@ -51,7 +51,7 @@ class TerraformController(IEnvironmentController):
         instances = aws_service.get_all_instances(self.config)
         aws_service.change_ec2_state(instances, 'running', self.log)
 
-    """
+    
     def test(self, test_file):
         # read test file
         test_file = self.load_file(test_file)
@@ -120,8 +120,6 @@ class TerraformController(IEnvironmentController):
                     github_service.create_issue(result_obj['results']['detection_name'], self.config)
             #result_cond |= result_obj['error']
         sys.exit(0)
-
-    """
 
 
     def load_file(self, file_path):

@@ -14,14 +14,18 @@ config.vm.define "piab-phantom-server" do |config|
         phantom_admin_password: '{{ phantom_admin_password }}',
         phantom_community_username: '{{ phantom_community_username }}',
         phantom_community_password: '{{ phantom_community_password }}',
-        phantom_server_private_ip: '{{ phantom_server_private_ip }}'
+        phantom_server_private_ip: '{{ phantom_server_private_ip }}',
+        pov_repo: '{{ pov_repo }}',
+        company_name: '{{ company_name }}',
+        customer_internal_domain: '{{ customer_internal_domain }}',
+        phantom_app_repo: '{{ phantom_app_repo }}'
       }
   end
 
   config.vm.provider "virtualbox" do |vb, override|
     vb.gui = true
     vb.name = "#{VM_NAME_P}"
-    vb.customize ["modifyvm", :id, "--memory", 4096]
-    vb.customize ["modifyvm", :id, "--cpus", 4]
+    vb.customize ["modifyvm", :id, "--memory", 8192]
+    vb.customize ["modifyvm", :id, "--cpus", 8]
   end
 end

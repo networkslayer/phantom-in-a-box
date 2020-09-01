@@ -3,3 +3,9 @@
 
 - include: install_phantom.yml
 - include: configure_phantom.yml
+- include: install_apps.yml 
+- include: configure_apps.yml
+- include: install_custom_functions.yml 
+- include: configure_playbooks.yml 
+- include: configure_event_settings.yml
+- include: configure_custom_lists.yml 

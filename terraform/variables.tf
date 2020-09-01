@@ -36,7 +36,10 @@ variable "phantom_packer_ami" { }
 # ---------------------- #
 # general
 variable "region" { }
-
+variable "pov_repo" { }
+variable "company_name" { }
+variable "customer_internal_domain" { }
+variable "phantom_app_repo" { }
 
 # Phantom server
 variable "phantom_admin_password" { }

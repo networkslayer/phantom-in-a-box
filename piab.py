@@ -36,7 +36,7 @@ if __name__ == "__main__":
     ARG_VERSION = args.version
     mode = args.mode
     action = args.action
-    target = args.target
+    #target = args.target
     config = args.config
     list_machines = args.list_machines
     packer_amis = args.ami

@@ -21,5 +21,9 @@ module "phantom-server" {
   phantom_community_password = var.phantom_community_password
   use_packer_amis            = var.use_packer_amis
   phantom_packer_ami         = var.phantom_packer_ami
+  pov_repo                   = var.pov_repo
+  company_name               = var.company_name
+  customer_internal_domain   = var.customer_internal_domain
+  phantom_app_repo           = var.phantom_app_repo
 }
 

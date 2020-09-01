@@ -1,0 +1,109 @@
+- name: Configuring aws_security_hub Event Settings
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/system_settings/events
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"add_label":true, "label_name":"aws_security_hub"}
+    body_format: json
+
+- name: Configuring imap Event Settings
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/system_settings/events
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"add_label":true, "label_name":"imap_email_pf"}
+    body_format: json
+
+- name: Configuring exchange Event Settings
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/system_settings/events
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"add_label":true, "label_name":"exchange_onprem_email_pf"}
+    body_format: json
+
+- name: Configuring office365 Event Settings
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/system_settings/events
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"add_label":true, "label_name":"office365_email_pf"}
+    body_format: json
+
+- name: Configuring service_now Event Settings
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/system_settings/events
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"add_label":true, "label_name":"service_now"}
+    body_format: json
+    
+- name: Configuring jira Event Settings
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/system_settings/events
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"add_label":true, "label_name":"jira"}
+    body_format: json
+
+- name: Configuring splunk_notable Event Settings
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/system_settings/events
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"add_label":true, "label_name":"splunk_notable"}
+    body_format: json
+
+- name: Configuring phishing Event Settings
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/system_settings/events
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"add_label":true, "label_name":"phishing_email"}
+    body_format: json
+
+- name: Configuring HUD Remaining Tasks Settings
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/container_pin_settings
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"pin_type":"preset metric","preset_metric":"remaining tasks","pin_style":"blue","label":"global"}
+    body_format: json
+  
+- name: Configuring HUD Failed Actions Settings
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/container_pin_settings
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"pin_type":"preset metric","preset_metric":"failed actions","pin_style":"blue","label":"global"}
+    body_format: json

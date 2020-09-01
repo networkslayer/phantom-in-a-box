@@ -26,6 +26,7 @@ class CustomConfigParser:
             for key in config[section]:
                 try:
                     self.settings[key] = config.get(section, key)
+                    
                 except Exception as e:
                     print("ERROR - with configuration file at {0} failed with error {1}".format(CONFIG_PATH, e))
                     sys.exit(1)

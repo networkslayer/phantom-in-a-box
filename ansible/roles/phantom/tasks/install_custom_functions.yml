@@ -1,0 +1,126 @@
+- name: Download update task custom function
+  get_url:
+    url: "{{pov_repo}}custom_functions/POV_update_task_body_status.tgz"
+    dest: /tmp
+
+- name: Read update task
+  slurp:
+    src:  /tmp/POV_update_task_body_status.tgz
+  register: file
+
+- name: Installing POV_update_task_body_status custom function
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/import_custom_function
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"custom_function":"{{ file['content'] }}","scm":"local"}
+    body_format: json
+
+
+- name: Download POV_artifact_count custom function
+  get_url:
+    url: "{{pov_repo}}custom_functions/POV_artifact_count.tgz"
+    dest: /tmp
+
+- name: Read update task
+  slurp:
+    src:  /tmp/POV_artifact_count.tgz
+  register: file
+
+- name: Installing POV_artifact_count custom function
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/import_custom_function
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"custom_function":"{{ file['content'] }}","scm":"local"}
+    body_format: json
+
+- name: Download POV_get_current_task custom function
+  get_url:
+    url: "{{pov_repo}}custom_functions/POV_get_current_task.tgz"
+    dest: /tmp
+
+- name: Read POV_get_current_task
+  slurp:
+    src:  /tmp/POV_get_current_task.tgz
+  register: file
+
+- name: Installing POV_get_current_task custom function
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/import_custom_function
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"custom_function":"{{ file['content'] }}","scm":"local"}
+    body_format: json
+    
+- name: Download POV_get_global_config custom function
+  get_url:
+    url: "{{pov_repo}}custom_functions/POV_get_global_config.tgz"
+    dest: /tmp
+
+- name: Read POV_get_global_config
+  slurp:
+    src:  /tmp/POV_get_global_config.tgz
+  register: file
+
+- name: Installing POV_get_global_config custom function
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/import_custom_function
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"custom_function":"{{ file['content'] }}","scm":"local"}
+    body_format: json
+
+- name: Download POV_phish_response_email_template custom function
+  get_url:
+    url: "{{pov_repo}}custom_functions/POV_phish_response_email_template.tgz"
+    dest: /tmp
+
+- name: Read POV_phish_response_email_template
+  slurp:
+    src:  /tmp/POV_phish_response_email_template.tgz
+  register: file
+
+- name: Installing POV_get_global_config custom function
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/import_custom_function
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"custom_function":"{{ file['content'] }}","scm":"local"}
+    body_format: json
+
+- name: Download POV_set_event_owner_to_current custom function
+  get_url:
+    url: "{{pov_repo}}custom_functions/POV_set_event_owner_to_current.tgz"
+    dest: /tmp
+
+- name: Read POV_set_event_owner_to_current
+  slurp:
+    src:  /tmp/POV_set_event_owner_to_current.tgz
+  register: file
+
+- name: Installing POV_set_event_owner_to_current custom function
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/import_custom_function
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"custom_function":"{{ file['content'] }}","scm":"local"}
+    body_format: json

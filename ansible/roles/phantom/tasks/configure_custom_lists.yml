@@ -1,0 +1,70 @@
+- name: Creating globalconfig Custom List
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/decided_list
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"content":
+    [
+      ["ticketing","email,servicenow" ],["internal_cidr", "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"],
+    ["domains", "contoso.com,contoso.local"],
+    ["aws_region", "eu-west-1"],
+    ["isolation_sg", "sg-009121c0a21b323e4"],
+    ["splunk_email_search", 'index=office365 sourcetype="ms:o365:reporting:messagetrace" SenderAddress="{0}" Subject="*{1}*" earliest=-7d@d | table RecipientAddress Received Subject SenderAddress FromIP MessageId'],
+    ["request_a_mailbox_search_email", "winstonchurchill@contoso.com"],
+    ["network_team_email_address", "networks@contoso.com"]
+
+    ],
+    "name": "globalconfig"}
+    body_format: json
+
+- name: Creating whitelisted_ips Custom List
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/decided_list
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"content":
+    [
+      ["192.168.2.254"],
+      ["62.23.33.23"]
+
+    ],
+    "name": "whitelisted_ips"}
+    body_format: json
+    
+- name: Creating whitelisted_urls Custom List
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/decided_list
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"content":
+    [
+      ["http://wpad.contoso.com/wpad.dat"],
+      ["https://intranet.contoso.com"],
+      ["https://myexternalwebsite.com"]
+    ],
+    "name": "whitelisted_urls"}
+    body_format: json
+
+- name: Creating top500 Custom List
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/decided_list
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"content":
+    [
+      ["See Engineers RunBook to update this list"]
+    ],
+    "name": "top500"}
+    body_format: json
