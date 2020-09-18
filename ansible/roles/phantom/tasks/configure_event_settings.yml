@@ -17,7 +17,7 @@
     validate_certs: no
     force_basic_auth: yes
     method: POST
-    body: {"add_label":true, "label_name":"imap_email_pf"}
+    body: {"add_label":true, "label_name":"imap_eml_pf"}
     body_format: json
 
 - name: Configuring exchange Event Settings
@@ -28,7 +28,7 @@
     validate_certs: no
     force_basic_auth: yes
     method: POST
-    body: {"add_label":true, "label_name":"exchange_onprem_email_pf"}
+    body: {"add_label":true, "label_name":"exch_eml_pf"}
     body_format: json
 
 - name: Configuring office365 Event Settings
@@ -39,7 +39,7 @@
     validate_certs: no
     force_basic_auth: yes
     method: POST
-    body: {"add_label":true, "label_name":"office365_email_pf"}
+    body: {"add_label":true, "label_name":"o365_eml_pf"}
     body_format: json
 
 - name: Configuring service_now Event Settings

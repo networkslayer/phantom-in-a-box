@@ -1,0 +1,17 @@
+- name: display phantom api token in configure apps
+  debug:
+    msg: "phantom api token is {{api_token.json.key}}"
+
+
+
+
+- name: Configuring Phantom App
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/app
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"roi_fte_gained":"on", "roi_money_saved":"on", "roi_time_saved":"on"}
+    body_format: json

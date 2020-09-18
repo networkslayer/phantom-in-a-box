@@ -1,44 +1,4 @@
-- name: Download Phantom App
-  get_url:
-    url: "{{pov_repo}}apps/phphantom_api.tgz"
-    dest: /tmp
-      
-- name: ... reading ...
-  slurp:
-    src:  /tmp/phphantom_api.tgz
-  register: file
-      
-- name: ... installing ....
-  uri:
-    user: admin
-    url: https://127.0.0.1/rest/app
-    password: "{{phantom_admin_password}}"
-    validate_certs: no
-    force_basic_auth: yes
-    method: POST
-    body: {"app":"{{ file['content'] }}"}
-    body_format: json
 
-- name: Download POV_AddContext_LDAP Playbook 
-  get_url:
-    url: "{{pov_repo}}playbooks/POV_AddContext_LDAP.tgz"
-    dest: /tmp
-
-- name: Read Playbook POV_AddContext_LDAP
-  slurp:
-    src:  /tmp/POV_AddContext_LDAP.tgz
-  register: file
-
-- name: Installing POV_AddContext_LDAP playbook
-  uri:
-    user: admin
-    url: https://127.0.0.1/rest/import_playbook
-    password: "{{phantom_admin_password}}"
-    validate_certs: no
-    force_basic_auth: yes
-    method: POST
-    body: {"playbook":"{{ file['content'] }}","scm":"local"}
-    body_format: json
 
 - name: Download Playbook POV_Excessive_Failed_Logons
   get_url:
@@ -108,7 +68,7 @@
     url: "{{pov_repo}}playbooks/POV_Rare_Process_Case_-_Containment.tgz"
     dest: /tmp
 
-- name: Read Playbook POV_Accept_Event
+- name: Read Playbook POV_Rare_Process_Case_-_Containment
   slurp:
     src:  /tmp/POV_Rare_Process_Case_-_Containment.tgz
   register: file
@@ -129,7 +89,7 @@
     url: "{{pov_repo}}playbooks/POV_Rare_Process_Case_-_Preparation.tgz"
     dest: /tmp
 
-- name: Read Playbook POV_Accept_Event
+- name: Read Playbook POV_Rare_Process_Case_-_Preparation
   slurp:
     src:  /tmp/POV_Rare_Process_Case_-_Preparation.tgz
   register: file
@@ -166,17 +126,17 @@
     body: {"playbook":"{{ file['content'] }}","scm":"local"}
     body_format: json
 
-- name: Download POV_Review_Indicators_Manually Playbook 
+- name: Download POV_Review_Indicators Playbook 
   get_url:
-    url: "{{pov_repo}}playbooks/POV_Review_Indicators_Manually.tgz"
+    url: "{{pov_repo}}playbooks/POV_Review_Indicators.tgz"
     dest: /tmp
 
-- name: Read Playbook POV_Review_Indicators_Manually
+- name: Read Playbook POV_Review_Indicators
   slurp:
-    src:  /tmp/POV_Review_Indicators_Manually.tgz
+    src:  /tmp/POV_Review_Indicators.tgz
   register: file
 
-- name: Installing POV_Review_Indicators_Manually playbook
+- name: Installing POV_Review_Indicators playbook
   uri:
     user: admin
     url: https://127.0.0.1/rest/import_playbook
@@ -192,7 +152,7 @@
     url: "{{pov_repo}}playbooks/POV_Sinkhole_or_Block_External_Indicators.tgz"
     dest: /tmp
 
-- name: Read Playbook POV_Accept_Event
+- name: Read Playbook POV_Sinkhole_or_Block_External_Indicators
   slurp:
     src:  /tmp/POV_Sinkhole_or_Block_External_Indicators.tgz
   register: file
@@ -229,17 +189,17 @@
     body: {"playbook":"{{ file['content'] }}","scm":"local"}
     body_format: json
 
-- name: Download POV_ec2_instance_investigation_and_notification Playbook 
+- name: Download POV_EC2_Instance_Investigation Playbook 
   get_url:
-    url: "{{pov_repo}}playbooks/POV_ec2_instance_investigation_and_notification.tgz"
+    url: "{{pov_repo}}playbooks/POV_EC2_Instance_Investigation.tgz"
     dest: /tmp
 
-- name: Read Playbook POV_ec2_instance_investigation_and_notification
+- name: Read Playbook POV_EC2_Instance_Investigation
   slurp:
-    src:  /tmp/POV_ec2_instance_investigation_and_notification.tgz
+    src:  /tmp/POV_EC2_Instance_Investigation.tgz
   register: file
 
-- name: Installing POV_ec2_instance_investigation_and_notification.tgz playbook
+- name: Installing POV_EC2_Instance_Investigation.tgz playbook
   uri:
     user: admin
     url: https://127.0.0.1/rest/import_playbook
@@ -250,17 +210,17 @@
     body: {"playbook":"{{ file['content'] }}","scm":"local"}
     body_format: json
 
-- name: Download POV_ec2_instance_isolation Playbook 
+- name: Download POV_Hunt_Email_Indicators Playbook 
   get_url:
-    url: "{{pov_repo}}playbooks/POV_ec2_instance_isolation.tgz"
+    url: "{{pov_repo}}playbooks/POV_Hunt_Email_Indicators.tgz"
     dest: /tmp
 
-- name: Read Playbook POV_ec2_instance_isolation
+- name: Read Playbook POV_Hunt_Email_Indicators
   slurp:
-    src:  /tmp/POV_ec2_instance_isolation.tgz
+    src:  /tmp/POV_Hunt_Email_Indicators.tgz
   register: file
 
-- name: Installing POV_ec2_instance_isolation playbook
+- name: Installing POV_Hunt_Email_Indicators playbook
   uri:
     user: admin
     url: https://127.0.0.1/rest/import_playbook
@@ -270,3 +230,300 @@
     method: POST
     body: {"playbook":"{{ file['content'] }}","scm":"local"}
     body_format: json
+
+
+
+- name: Download POV_EC2_AWS_Context Playbook 
+  get_url:
+    url: "{{pov_repo}}playbooks/POV_EC2_AWS_Context.tgz"
+    dest: /tmp
+
+- name: Read Playbook POV_EC2_AWS_Context
+  slurp:
+    src:  /tmp/POV_EC2_AWS_Context.tgz
+  register: file
+
+- name: Installing POV_EC2_AWS_Context playbook
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/import_playbook
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"playbook":"{{ file['content'] }}","scm":"local"}
+    body_format: json
+
+- name: Download POV_malicious_insider_containment Playbook 
+  get_url:
+    url: "{{pov_repo}}playbooks/POV_malicious_insider_containment.tgz"
+    dest: /tmp
+
+- name: Read Playbook POV_malicious_insider_containment
+  slurp:
+    src:  /tmp/POV_malicious_insider_containment.tgz
+  register: file
+
+- name: Installing POV_malicious_insider_containment playbook
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/import_playbook
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"playbook":"{{ file['content'] }}","scm":"local"}
+    body_format: json
+
+- name: Download POV_Network_URL_Enrichment Playbook 
+  get_url:
+    url: "{{pov_repo}}playbooks/POV_Network_URL_Enrichment.tgz"
+    dest: /tmp
+
+- name: Read Playbook POV_Network_URL_Enrichment
+  slurp:
+    src:  /tmp/POV_Network_URL_Enrichment.tgz
+  register: file
+
+- name: Installing POV_Network_URL_Enrichment playbook
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/import_playbook
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"playbook":"{{ file['content'] }}","scm":"local"}
+    body_format: json
+
+- name: Download POV_EC2_Remote_Probe_Context Playbook 
+  get_url:
+    url: "{{pov_repo}}playbooks/POV_EC2_Remote_Probe_Context.tgz"
+    dest: /tmp
+
+- name: Read Playbook POV_EC2_Remote_Probe_Context
+  slurp:
+    src:  /tmp/POV_EC2_Remote_Probe_Context.tgz
+  register: file
+
+- name: Installing POV_EC2_Remote_Probe_Context playbook
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/import_playbook
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"playbook":"{{ file['content'] }}","scm":"local"}
+    body_format: json
+
+- name: Download POV_Phishing_Preflight Playbook 
+  get_url:
+    url: "{{pov_repo}}playbooks/POV_Phishing_Preflight.tgz"
+    dest: /tmp
+
+- name: Read Playbook POV_Phishing_Preflight
+  slurp:
+    src:  /tmp/POV_Phishing_Preflight.tgz
+  register: file
+
+- name: Installing POV_Phishing_Preflight playbook
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/import_playbook
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"playbook":"{{ file['content'] }}","scm":"local"}
+    body_format: json
+
+- name: Download POV_AddContext_LDAP Playbook 
+  get_url:
+    url: "{{pov_repo}}playbooks/POV_AddContext_LDAP.tgz"
+    dest: /tmp
+
+- name: Read Playbook POV_AddContext_LDAP
+  slurp:
+    src:  /tmp/POV_AddContext_LDAP.tgz
+  register: file
+
+- name: Installing POV_AddContext_LDAP playbook
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/import_playbook
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"playbook":"{{ file['content'] }}","scm":"local"}
+    body_format: json
+
+- name: Download POV_Network_IP_Enrichment Playbook 
+  get_url:
+    url: "{{pov_repo}}playbooks/POV_Network_IP_Enrichment.tgz"
+    dest: /tmp
+
+- name: Read Playbook POV_Network_IP_Enrichment
+  slurp:
+    src:  /tmp/POV_Network_IP_Enrichment.tgz
+  register: file
+
+- name: Installing POV_Network_IP_Enrichment playbook
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/import_playbook
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"playbook":"{{ file['content'] }}","scm":"local"}
+    body_format: json
+
+- name: Download POV_Close_Splunk_ES_Notable Playbook 
+  get_url:
+    url: "{{pov_repo}}playbooks/POV_Close_Splunk_ES_Notable.tgz"
+    dest: /tmp
+
+- name: Read Playbook POV_Close_Splunk_ES_Notable
+  slurp:
+    src:  /tmp/POV_Close_Splunk_ES_Notable.tgz
+  register: file
+
+- name: Installing POV_Close_Splunk_ES_Notable playbook
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/import_playbook
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"playbook":"{{ file['content'] }}","scm":"local"}
+    body_format: json
+
+
+- name: Download POV_Network_Domain_Enrichment Playbook 
+  get_url:
+    url: "{{pov_repo}}playbooks/POV_Network_Domain_Enrichment.tgz"
+    dest: /tmp
+
+- name: Read Playbook POV_Network_Domain_Enrichment
+  slurp:
+    src:  /tmp/POV_Network_Domain_Enrichment.tgz
+  register: file
+
+- name: Installing POV_Network_Domain_Enrichment playbook
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/import_playbook
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"playbook":"{{ file['content'] }}","scm":"local"}
+    body_format: json
+
+- name: Download POV_Phishing_Network_Indicator_Enrichment Playbook 
+  get_url:
+    url: "{{pov_repo}}playbooks/POV_Phishing_Network_Indicator_Enrichment.tgz"
+    dest: /tmp
+
+- name: Read Playbook POV_Phishing_Network_Indicator_Enrichment
+  slurp:
+    src:  /tmp/POV_Phishing_Network_Indicator_Enrichment.tgz
+  register: file
+
+- name: Installing POV_Phishing_Network_Indicator_Enrichment playbook
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/import_playbook
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"playbook":"{{ file['content'] }}","scm":"local"}
+    body_format: json
+
+- name: Download POV_Close_Event Playbook 
+  get_url:
+    url: "{{pov_repo}}playbooks/POV_Close_Event.tgz"
+    dest: /tmp
+
+- name: Read Playbook POV_Close_Event
+  slurp:
+    src:  /tmp/POV_Close_Event.tgz
+  register: file
+
+- name: Installing POV_Close_Event playbook
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/import_playbook
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"playbook":"{{ file['content'] }}","scm":"local"}
+    body_format: json
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,25 +1,3 @@
-- name: Download update task custom function
-  get_url:
-    url: "{{pov_repo}}custom_functions/POV_update_task_body_status.tgz"
-    dest: /tmp
-
-- name: Read update task
-  slurp:
-    src:  /tmp/POV_update_task_body_status.tgz
-  register: file
-
-- name: Installing POV_update_task_body_status custom function
-  uri:
-    user: admin
-    url: https://127.0.0.1/rest/import_custom_function
-    password: "{{phantom_admin_password}}"
-    validate_certs: no
-    force_basic_auth: yes
-    method: POST
-    body: {"custom_function":"{{ file['content'] }}","scm":"local"}
-    body_format: json
-
-
 - name: Download POV_artifact_count custom function
   get_url:
     url: "{{pov_repo}}custom_functions/POV_artifact_count.tgz"
