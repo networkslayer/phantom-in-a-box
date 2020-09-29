@@ -18,7 +18,9 @@ config.vm.define "piab-phantom-server" do |config|
         pov_repo: '{{ pov_repo }}',
         company_name: '{{ company_name }}',
         customer_internal_domain: '{{ customer_internal_domain }}',
-        phantom_app_repo: '{{ phantom_app_repo }}'
+        phantom_app_repo: '{{ phantom_app_repo }}',
+        phantom_timezone: '{{ phantom_timezone }}',
+        customer_system_administrator: '{{ customer_system_administrator }}'
       }
   end
 
