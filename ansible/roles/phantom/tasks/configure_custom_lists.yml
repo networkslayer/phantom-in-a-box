@@ -14,7 +14,10 @@
     ["isolation_sg", "sg-009121c0a21b323e4"],
     ["splunk_email_search", 'index=office365 sourcetype="ms:o365:reporting:messagetrace" SenderAddress="{0}" Subject="*{1}*" earliest=-7d@d | table RecipientAddress Received Subject SenderAddress FromIP MessageId'],
     ["request_a_mailbox_search_email", "winstonchurchill@contoso.com"],
-    ["network_team_email_address", "networks@contoso.com"]
+    ["network_team_email_address", "networks@contoso.com"],
+    ["siem_context_authentication_by_host_1", 'earliest={1} latest={2} index=win host="*{0}*" (EventCode=4648 OR EventCode=4624) user!="*$" | stats values(host) AS host values(TargetUserName) AS TargetUserName  values(LogonType) AS LogonType values(src_ip) AS srcAddress values(SubjectUserName) AS SubjectUserName values(TargetServerName) AS TargetServerName BY _time, EventCode, Target_Domain | eval direction=case(EventCode=4624,"inbound",EventCode=4648 AND TargetServerName="localhost","Local_Priv_Esc",EventCode=4648  AND TargetServerName != "localhost","Outbound_Priv_Esc")'],
+    ["siem_context_web_by_username_1",'values(Web.action) AS action values(Web.src) AS src from datamodel=Web WHERE earliest={1} latest={2} Web.user="*{0}*" GROUPBY _time, Web.user, Web.status, Web.http_method Web.url span=1h'],
+    ["siem_context_process_execution_by_host_1",'earliest={1} latest={2} index=win source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" host="*{0}*" parent_process!="*splunkd.exe*" | table _time host user process_id parent_process_id process parent_process  process_current_directory process_hash'],
 
     ],
     "name": "globalconfig"}

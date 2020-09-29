@@ -25,5 +25,7 @@ module "phantom-server" {
   company_name               = var.company_name
   customer_internal_domain   = var.customer_internal_domain
   phantom_app_repo           = var.phantom_app_repo
+  customer_system_administrator = var.customer_system_administrator
+  phantom_timezone           = var.phantom_timezone
 }
 

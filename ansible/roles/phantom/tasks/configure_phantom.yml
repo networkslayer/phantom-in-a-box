@@ -65,7 +65,7 @@
     validate_certs: no
     force_basic_auth: yes
     method: POST
-    body: {"company_name":"{{company_name}}", "fqdn":"https://phantom.{{customer_internal_domain}}"}
+    body: {"company_name":"{{company_name}}", "fqdn":"https://phantom.{{customer_internal_domain}}", "administrator_contact":"{{customer_system_administrator}}", "time_zone":"{{phantom_timezone}}"}
     body_format: json
 
 

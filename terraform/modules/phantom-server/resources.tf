@@ -47,7 +47,7 @@ resource "aws_instance" "phantom-server" {
 
   provisioner "local-exec" {
     working_dir = "../ansible/"
-    command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -u centos --private-key ${var.private_key_path} -i '${aws_instance.phantom-server[0].public_ip},' playbooks/phantom_server.yml -e 'phantom_admin_password=${var.phantom_admin_password} phantom_community_username=${var.phantom_community_username} phantom_community_password=${var.phantom_community_password} phantom_server_private_ip=${var.phantom_server_private_ip} pov_repo=${var.pov_repo} company_name=${var.company_name} customer_internal_domain=${var.customer_internal_domain} phantom_app_repo=${var.phantom_app_repo}'"
+    command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -u centos --private-key ${var.private_key_path} -i '${aws_instance.phantom-server[0].public_ip},' playbooks/phantom_server.yml -e 'phantom_admin_password=${var.phantom_admin_password} phantom_community_username=${var.phantom_community_username} phantom_community_password=${var.phantom_community_password} phantom_server_private_ip=${var.phantom_server_private_ip} pov_repo=${var.pov_repo} company_name=${var.company_name} customer_internal_domain=${var.customer_internal_domain} phantom_app_repo=${var.phantom_app_repo} customer_system_administrator=${var.customer_system_administrator} phantom_timezone=${var.phantom_timezone}'"
   }
 }
 

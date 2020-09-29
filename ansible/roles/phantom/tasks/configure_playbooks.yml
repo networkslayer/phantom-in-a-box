@@ -465,7 +465,173 @@
     body: {"playbook":"{{ file['content'] }}","scm":"local"}
     body_format: json
 
+- name: Download POV_WinRM_Get_File Playbook 
+  get_url:
+    url: "{{pov_repo}}playbooks/POV_WinRM_Get_File.tgz"
+    dest: /tmp
 
+- name: Read Playbook POV_WinRM_Get_File
+  slurp:
+    src:  /tmp/POV_WinRM_Get_File.tgz
+  register: file
+
+- name: Installing POV_WinRM_Get_File playbook
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/import_playbook
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"playbook":"{{ file['content'] }}","scm":"local"}
+    body_format: json
+
+- name: Download POV_File_Reputation Playbook 
+  get_url:
+    url: "{{pov_repo}}playbooks/POV_File_Reputation.tgz"
+    dest: /tmp
+
+- name: Read Playbook POV_File_Reputation
+  slurp:
+    src:  /tmp/POV_File_Reputation.tgz
+  register: file
+
+- name: Installing POV_File_Reputation playbook
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/import_playbook
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"playbook":"{{ file['content'] }}","scm":"local"}
+    body_format: json
+
+- name: Download POV_Detonate_Executable_File Playbook 
+  get_url:
+    url: "{{pov_repo}}playbooks/POV_Detonate_Executable_File.tgz"
+    dest: /tmp
+
+- name: Read Playbook POV_Detonate_Executable_File
+  slurp:
+    src:  /tmp/POV_Detonate_Executable_File.tgz
+  register: file
+
+- name: Installing POV_Detonate_Executable_File playbook
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/import_playbook
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"playbook":"{{ file['content'] }}","scm":"local"}
+    body_format: json
+
+- name: Download POV_Get_Sys_Info_LDAP Playbook 
+  get_url:
+    url: "{{pov_repo}}playbooks/POV_Get_Sys_Info_LDAP.tgz"
+    dest: /tmp
+
+- name: Read Playbook POV_Get_Sys_Info_LDAP
+  slurp:
+    src:  /tmp/POV_Get_Sys_Info_LDAP.tgz
+  register: file
+
+- name: Installing POV_Get_Sys_Info_LDAP playbook
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/import_playbook
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"playbook":"{{ file['content'] }}","scm":"local"}
+    body_format: json
+
+- name: Download POV_SIEM_Context_Authentication_By_Host Playbook 
+  get_url:
+    url: "{{pov_repo}}playbooks/POV_SIEM_Context_Authentication_By_Host.tgz"
+    dest: /tmp
+
+- name: Read Playbook POV_SIEM_Context_Authentication_By_Host
+  slurp:
+    src:  /tmp/POV_SIEM_Context_Authentication_By_Host.tgz
+  register: file
+
+- name: Installing POV_SIEM_Context_Authentication_By_Host playbook
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/import_playbook
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"playbook":"{{ file['content'] }}","scm":"local"}
+    body_format: json
+
+- name: Download POV_SIEM_Context Playbook 
+  get_url:
+    url: "{{pov_repo}}playbooks/POV_SIEM_Context.tgz"
+    dest: /tmp
+
+- name: Read Playbook POV_SIEM_Context
+  slurp:
+    src:  /tmp/POV_SIEM_Context.tgz
+  register: file
+
+- name: Installing POV_SIEM_Context playbook
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/import_playbook
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"playbook":"{{ file['content'] }}","scm":"local"}
+    body_format: json
+
+- name: Download POV_SIEM_Context_Process_Execution_By_Host Playbook 
+  get_url:
+    url: "{{pov_repo}}playbooks/POV_SIEM_Context_Process_Execution_By_Host.tgz"
+    dest: /tmp
+
+- name: Read Playbook POV_SIEM_Context_Process_Execution_By_Host
+  slurp:
+    src:  /tmp/POV_SIEM_Context_Process_Execution_By_Host.tgz
+  register: file
+
+- name: Installing POV_SIEM_Context_Process_Execution_By_Host playbook
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/import_playbook
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"playbook":"{{ file['content'] }}","scm":"local"}
+    body_format: json
+
+- name: Download POV_SIEM_Context_Web_By_UserName Playbook 
+  get_url:
+    url: "{{pov_repo}}playbooks/POV_SIEM_Context_Web_By_UserName.tgz"
+    dest: /tmp
+
+- name: Read Playbook POV_SIEM_Context_Web_By_UserName
+  slurp:
+    src:  /tmp/POV_SIEM_Context_Web_By_UserName.tgz
+  register: file
+
+- name: Installing POV_SIEM_Context_Web_By_UserName playbook
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/import_playbook
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"playbook":"{{ file['content'] }}","scm":"local"}
+    body_format: json
 
 
 

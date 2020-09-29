@@ -2,9 +2,6 @@
   debug:
     msg: "phantom api token is {{api_token.json.key}}"
 
-
-
-
 - name: Configuring Phantom App
   uri:
     user: admin

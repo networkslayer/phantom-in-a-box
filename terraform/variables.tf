@@ -40,6 +40,8 @@ variable "pov_repo" { }
 variable "company_name" { }
 variable "customer_internal_domain" { }
 variable "phantom_app_repo" { }
+variable "phantom_timezone" { }
+variable "customer_system_administrator" { }
 
 # Phantom server
 variable "phantom_admin_password" { }
