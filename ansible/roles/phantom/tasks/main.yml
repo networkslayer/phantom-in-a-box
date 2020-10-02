@@ -8,4 +8,5 @@
 - include: install_custom_functions.yml 
 - include: configure_playbooks.yml 
 - include: configure_event_settings.yml
-- include: configure_custom_lists.yml 
+- include: configure_custom_lists.yml
+- include: install_workbooks.yml

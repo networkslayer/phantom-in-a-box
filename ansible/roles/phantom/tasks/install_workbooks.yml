@@ -1,0 +1,83 @@
+- name: Download POV_Phishing_Investigation_Workbook 
+  get_url:
+    url: "https://github.com/networkslayer/phantom_pov/raw/master/workbooks/POV_Phishing_Investigation_Workbook.json"
+    dest: /tmp
+
+- name: Read POV_Phishing_Investigation_Workbook
+  slurp:
+    src:  /tmp/POV_Phishing_Investigation_Workbook.json
+  register: file
+      
+- name: Installing POV_Phishing_Investigation_Workbook
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/workflow_template
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: "{{ file['content'] | b64decode }}"
+    body_format: json
+
+- name: Download POV_Malware_Investigation_Workbook 
+  get_url:
+    url: "https://github.com/networkslayer/phantom_pov/raw/master/workbooks/POV_Malware_Investigation_Workbook.json"
+    dest: /tmp
+
+- name: Read POV_Malware_Investigation_Workbook
+  slurp:
+    src:  /tmp/POV_Malware_Investigation_Workbook.json
+  register: file
+      
+- name: Installing POV_Malware_Investigation_Workbook
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/workflow_template
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: "{{ file['content'] | b64decode }}"
+    body_format: json
+
+- name: Download AWS_Security_Hub Workbook 
+  get_url:
+    url: "https://github.com/networkslayer/phantom_pov/raw/master/workbooks/POV_AWS_SecurityHub_Triage.json"
+    dest: /tmp
+
+- name: Read AWS_Security_Hub Workbook
+  slurp:
+    src:  /tmp/POV_AWS_SecurityHub_Triage.json
+  register: file
+      
+- name: Installing AWS_Security_Hub Workbook
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/workflow_template
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: "{{ file['content'] | b64decode }}"
+    body_format: json
+
+- name: Download POV_Excessive_Failed_Logons Workbook 
+  get_url:
+    url: "https://github.com/networkslayer/phantom_pov/raw/master/workbooks/POV_Excessive_Failed_Logons.json"
+    dest: /tmp
+
+- name: Read POV_Excessive_Failed_Logons Workbook
+  slurp:
+    src:  /tmp/POV_Excessive_Failed_Logons.json
+  register: file
+      
+- name: Installing POV_Excessive_Failed_Logons Workbook
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/workflow_template
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: "{{ file['content'] | b64decode }}"
+    body_format: json
