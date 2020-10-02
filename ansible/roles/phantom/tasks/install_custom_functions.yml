@@ -123,3 +123,24 @@
     method: POST
     body: {"custom_function":"{{ file['content'] }}","scm":"local"}
     body_format: json
+
+- name: Download POV_Add_Workbook custom function
+  get_url:
+    url: "{{pov_repo}}custom_functions/POV_Add_Workbook.tgz"
+    dest: /tmp
+
+- name: Read POV_Add_Workbook
+  slurp:
+    src:  /tmp/POV_Add_Workbook.tgz
+  register: file
+
+- name: Installing POV_Add_Workbook
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/import_custom_function
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"custom_function":"{{ file['content'] }}","scm":"local"}
+    body_format: json
