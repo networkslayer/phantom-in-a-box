@@ -1,6 +1,6 @@
 - name: Download POV_Phishing_Investigation_Workbook 
   get_url:
-    url: "https://github.com/networkslayer/phantom_pov/raw/master/workbooks/POV_Phishing_Investigation_Workbook.json"
+    url: "{{pov_repo}}workbooks/POV_Phishing_Investigation_Workbook.json"
     dest: /tmp
 
 - name: Read POV_Phishing_Investigation_Workbook
@@ -21,7 +21,7 @@
 
 - name: Download POV_Malware_Investigation_Workbook 
   get_url:
-    url: "https://github.com/networkslayer/phantom_pov/raw/master/workbooks/POV_Malware_Investigation_Workbook.json"
+    url: "{{pov_repo}}workbooks/POV_Malware_Investigation_Workbook.json"
     dest: /tmp
 
 - name: Read POV_Malware_Investigation_Workbook
@@ -42,7 +42,7 @@
 
 - name: Download AWS_Security_Hub Workbook 
   get_url:
-    url: "https://github.com/networkslayer/phantom_pov/raw/master/workbooks/POV_AWS_SecurityHub_Triage.json"
+    url: "{{pov_repo}}workbooks/POV_AWS_SecurityHub_Triage.json"
     dest: /tmp
 
 - name: Read AWS_Security_Hub Workbook
@@ -63,7 +63,7 @@
 
 - name: Download POV_Excessive_Failed_Logons Workbook 
   get_url:
-    url: "https://github.com/networkslayer/phantom_pov/raw/master/workbooks/POV_Excessive_Failed_Logons.json"
+    url: "{{pov_repo}}workbooks/POV_Excessive_Failed_Logons.json"
     dest: /tmp
 
 - name: Read POV_Excessive_Failed_Logons Workbook
