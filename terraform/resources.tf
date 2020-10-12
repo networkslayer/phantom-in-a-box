@@ -27,5 +27,6 @@ module "phantom-server" {
   phantom_app_repo           = var.phantom_app_repo
   customer_system_administrator = var.customer_system_administrator
   phantom_timezone           = var.phantom_timezone
+  phantom_version            = var.phantom_version
 }
 

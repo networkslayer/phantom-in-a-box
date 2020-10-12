@@ -39,3 +39,4 @@ variable "customer_internal_domain" { }
 variable "phantom_app_repo" { }
 variable "customer_system_administrator" { }
 variable "phantom_timezone" { }
+variable "phantom_version" { }

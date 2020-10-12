@@ -16,11 +16,11 @@
 
 - name: install the phantom setup rpm from the community repository
   yum:
-    name: https://repo.phantom.us/phantom/4.9/base/7/x86_64/phantom_repo-4.9.35731-1.x86_64.rpm
+    name: https://repo.phantom.us/phantom/4.9/base/7/x86_64/phantom_repo-{{phantom_version}}.x86_64.rpm
     state: present
 
 # installing apps takes 15+ minutes longer, so later we will install just the apps we need
 - name: run the phantom install script without apps
-  shell: printf "{{phantom_community_username}}\n{{phantom_community_password}}\n" | /opt/phantom/bin/phantom_setup.sh install --no-prompt --without-apps
+  shell: printf "{{phantom_community_username}}\n{{phantom_community_password}}\n" | /opt/phantom/bin/phantom_setup.sh install --version={{ phantom_version }} --no-prompt --without-apps
   async: 3600
   poll: 60
