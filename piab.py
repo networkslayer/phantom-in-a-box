@@ -1,8 +1,10 @@
 import os
 import sys
 import argparse
+import requests
 from modules import logger
 from pathlib import Path
+from modules.PiabTelemetry import PiabTelemetry
 from modules.CustomConfigParser import CustomConfigParser
 from modules.TerraformController import TerraformController
 from modules.VagrantController import VagrantController
@@ -101,8 +103,18 @@ if __name__ == "__main__":
         log.error('ERROR: packer can only be used with action build_amis and destroy_amis. To build phantom-in-a-box use mode terraform or vagrant.')
         sys.exit(1)
 
-
-
+    # Reachability Check for Internal VPN
+    try:
+        r = requests.get('https://git.splunk.com/users/deking/repos/phantom_pov/raw/apps')
+        if not r.status_code == 200:
+            log.error('Phantom POV repo is not accessible - please ensure you login to the VPN before re-running')
+            sys.exit(1)
+    except Exception as e:
+        log.error('Phantom POV repo is not accessible - please ensure you login to the VPN before re-running')
+        sys.exit(1)
+   
+    telem = PiabTelemetry()
+    telem.write(mode)
 
     if mode == 'terraform':
         controller = TerraformController(config, log, packer_amis)
