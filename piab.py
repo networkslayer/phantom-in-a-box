@@ -112,6 +112,10 @@ if __name__ == "__main__":
     except Exception as e:
         log.error('Phantom POV repo is not accessible - please ensure you login to the VPN before re-running')
         sys.exit(1)
+
+    if config['phantom_community_username'] == "yourname@splunk.com":
+        log.error('Please enter your phantom community username and password to piab.conf - then rerun')
+        sys.exit(1)
    
     telem = PiabTelemetry()
     telem.write(mode)

@@ -81,3 +81,24 @@
     method: POST
     body: "{{ file['content'] | b64decode }}"
     body_format: json
+
+- name: Download POV_Insider_Threat_Investigation Workbook 
+  get_url:
+    url: "{{pov_repo}}workbooks/POV_Insider_Threat_Investigation_Workbook.json"
+    dest: /tmp
+
+- name: Read POV_Insider_Threat_Investigation Workbook
+  slurp:
+    src:  /tmp/POV_Insider_Threat_Investigation_Workbook.json
+  register: file
+      
+- name: Installing POV_Insider_Threat_Investigation Workbook
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/workflow_template
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: "{{ file['content'] | b64decode }}"
+    body_format: json

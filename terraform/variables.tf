@@ -47,3 +47,4 @@ variable "customer_system_administrator" { }
 variable "phantom_admin_password" { }
 variable "phantom_community_username" { }
 variable "phantom_community_password" { }
+variable "phantom_version" { }
