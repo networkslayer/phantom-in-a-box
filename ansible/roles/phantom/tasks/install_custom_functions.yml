@@ -144,3 +144,25 @@
     method: POST
     body: {"custom_function":"{{ file['content'] }}","scm":"local"}
     body_format: json
+
+
+- name: Download POV_Email_Properties custom function
+  get_url:
+    url: "{{pov_repo}}custom_functions/POV_Email_Properties.tgz"
+    dest: /tmp
+
+- name: Read POV_Email_Properties
+  slurp:
+    src:  /tmp/POV_Email_Properties.tgz
+  register: file
+
+- name: Installing POV_Email_Properties
+  uri:
+    user: admin
+    url: https://127.0.0.1/rest/import_custom_function
+    password: "{{phantom_admin_password}}"
+    validate_certs: no
+    force_basic_auth: yes
+    method: POST
+    body: {"custom_function":"{{ file['content'] }}","scm":"local"}
+    body_format: json
